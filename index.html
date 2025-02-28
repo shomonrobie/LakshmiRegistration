@@ -54,7 +54,7 @@
                 body: JSON.stringify({ username: username, email: email })
             })
             .then(() => {
-                message.textContent = "Welcome " + username + "! Tell your fellow traders!";
+                message.textContent = "Welcome " + username + "! Please share with your fellow traders!";
                 form.reset();
             })
             .catch(error => message.textContent = "Error: " + error.message);
