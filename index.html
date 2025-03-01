@@ -46,14 +46,14 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             const user_name = document.getElementById('user_name').value;
-            const account_number = document.getElementById('account_number').value;
             const email = document.getElementById('email').value;
+            const account_number = document.getElementById('account_number').value;            
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyN-WuwDFW6QeXhgUtAXqDIZK0q0pGZI1ZvCdchFpVxmCIb-v2Z4J9J5nXKN7TdwJc/exec';
             fetch(scriptURL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ user_name: user_name, account_number: account_number, email: email })
+                body: JSON.stringify({ user_name: user_name, email: email, account_number: account_number })
             })
             .then(() => {
                 message.textContent = "Welcome " + user_name + "! Please share with your fellow traders!";
