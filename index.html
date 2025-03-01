@@ -31,10 +31,11 @@
 <body>
     <img src="LakshmiFX-Logo-X-200x200.png" alt="LakshmiFX Logo" width="150"> <!-- Replace with your logo path -->
     <h1>LakshmiFX Registration - Spark the Wildfire</h1>
-    <p>Free for MetaTrader5 Traders! Join 1,600+ users—spread the word!</p>
+    <p>Free for MetaTrader5 Traders! Join 2,000+ users—spread the word!</p>
     <form id="signupForm">
-        <input type="text" id="username" placeholder="Your Username" required><br>
+        <input type="text" id="user_name" placeholder="Your Name" required><br>
         <input type="email" id="email" placeholder="Your Email" required><br>
+        <input type="text" id="account_number" placeholder="Your Account Number" required><br>
         <button type="submit">Join Free</button>
     </form>
     <p id="message"></p>
@@ -44,17 +45,18 @@
         const message = document.getElementById('message');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
+            const user_name = document.getElementById('user_name').value;
+            const account_number = document.getElementById('account_number').value;
             const email = document.getElementById('email').value;
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyN-WuwDFW6QeXhgUtAXqDIZK0q0pGZI1ZvCdchFpVxmCIb-v2Z4J9J5nXKN7TdwJc/exec';
             fetch(scriptURL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, email: email })
+                body: JSON.stringify({ user_name: user_name, account_number: account_number, email: email })
             })
             .then(() => {
-                message.textContent = "Welcome " + username + "! Please share with your fellow traders!";
+                message.textContent = "Welcome " + user_name + "! Please share with your fellow traders!";
                 form.reset();
             })
             .catch(error => message.textContent = "Error: " + error.message);
